@@ -1,0 +1,2 @@
+rootProject.name='mobileFit'
+include ':app'
