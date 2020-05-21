@@ -1,6 +1,7 @@
 package com.mobilefit.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -16,6 +17,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.mobilefit.R
+import com.mobilefit.ui.register.RegisterActivity
+import com.mobilefit.utils.OnTextChangedListener
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,12 +26,11 @@ class LoginActivity : AppCompatActivity() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-
 		setContentView(R.layout.activity_login)
 
 		val username = findViewById<EditText>(R.id.username)
 		val password = findViewById<EditText>(R.id.password)
-		val login = findViewById<Button>(R.id.login)
+		val login = findViewById<Button>(R.id.btn_login)
 		val loading = findViewById<ProgressBar>(R.id.loading)
 
 		loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
@@ -54,9 +56,8 @@ class LoginActivity : AppCompatActivity() {
 			loading.visibility = View.GONE
 			if (loginResult.error != null) {
 				showLoginFailed(loginResult.error)
-			}
-			if (loginResult.success != null) {
-				updateUiWithUser(loginResult.success)
+			}else{
+				updateUiWithUser()
 			}
 			setResult(Activity.RESULT_OK)
 
@@ -97,19 +98,23 @@ class LoginActivity : AppCompatActivity() {
 		}
 	}
 
-	private fun updateUiWithUser(model: LoggedInUserView) {
+	private fun updateUiWithUser() {
 		val welcome = getString(R.string.welcome)
-		val displayName = model.displayName
 		// TODO : initiate successful logged in experience
 		Toast.makeText(
 			applicationContext,
-			"$welcome $displayName",
+			"$welcome ",
 			Toast.LENGTH_LONG
 		).show()
 	}
 
 	private fun showLoginFailed(@StringRes errorString: Int) {
 		Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+	}
+
+	fun registerPressed(view:View){
+		val intent = Intent(this, RegisterActivity::class.java)
+		startActivity(intent)
 	}
 }
 

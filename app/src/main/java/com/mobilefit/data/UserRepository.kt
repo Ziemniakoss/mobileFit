@@ -27,14 +27,26 @@ class UserRepository(val dataSource: UserDataSource) {
 		dataSource.logout()
 	}
 
-	fun login(username: String, password: String): Result<User> {
+	fun login(email: String, password: String): Result<User> {
 		// handle login
-		val result = dataSource.login(username, password)
+		val result = dataSource.login(email, password)
 
 		if (result is Result.Success) {
 			setLoggedInUser(result.data)
 		}
 
+		return result
+	}
+
+	/**
+	 * Rejestruje i loguje jeżeli udało siee zarejestrować
+	 */
+	fun register(username: String, email: String, password: String): Result<User> {
+		val result = dataSource.register(username, email, password)
+		if(result is Result.Success){
+			//todo faktyczne logowanie
+			return login("fit@gmail.com", "123456")
+		}
 		return result
 	}
 

@@ -6,5 +6,6 @@
     <color name="background">#000000</color>
     <color name="foreground1">#424242</color>
     <color name="textColor">#CACACA</color>
+    <color name="hintColor">#616161</color>
     <color name="navHeaderBack">#696969</color>
 </resources>
