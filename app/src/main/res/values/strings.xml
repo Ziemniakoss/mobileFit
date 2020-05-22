@@ -36,4 +36,5 @@
 	<string name="error_invalid_email">Invalid email</string>
 	<string name="error_password_mismatch">Passwords mismatch</string>
 	<string name="error_unknown">Unknown error</string>
+	<string name="weight_new_measurement">New measurement</string>
 </resources>
