@@ -8,7 +8,7 @@ import com.mobilefit.R
 import com.mobilefit.data.Result
 import com.mobilefit.data.UserRepository
 
-class RegisterViewModel(val userRepository: UserRepository) : ViewModel() {
+class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 	private val _formState = MutableLiveData<RegisterFormState>()
 	val formState: LiveData<RegisterFormState> = _formState
 
@@ -23,9 +23,9 @@ class RegisterViewModel(val userRepository: UserRepository) : ViewModel() {
 			return
 
 		val registerResult = userRepository.register(username, email, password)
-		if(registerResult is Result.Success){
+		if (registerResult is Result.Success) {
 			_result.value = RegisterResult(null)
-		}else{
+		} else {
 			_result.value = RegisterResult(R.string.error_unknown)
 		}
 	}

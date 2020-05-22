@@ -13,7 +13,7 @@
 		tools:context=".ui.login.LoginActivity" android:background="@color/background">
 
 	<EditText
-			android:id="@+id/username"
+			android:id="@+id/tv_username"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginStart="24dp"
@@ -29,7 +29,7 @@
 			android:textColorHint="@color/hintColor" android:background="@color/colorAccent" android:padding="8sp"/>
 
 	<EditText
-			android:id="@+id/password"
+			android:id="@+id/tv_password"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginStart="24dp"
@@ -43,7 +43,7 @@
 			android:selectAllOnFocus="true"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/username" android:textColor="@color/textColor"
+			app:layout_constraintTop_toBottomOf="@+id/tv_username" android:textColor="@color/textColor"
 			android:textColorHint="@color/hintColor" android:background="@color/colorAccent" android:padding="8sp"/>
 
 	<Button
@@ -58,9 +58,9 @@
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/password"
+			app:layout_constraintTop_toBottomOf="@+id/tv_password"
 			app:layout_constraintVertical_bias="0.2" android:background="@color/colorPrimary"
-			android:textColor="@color/textColor"/>
+			android:textColor="@color/textColor" android:onClick="loginPressed"/>
 
 	<ProgressBar
 			android:id="@+id/loading"
@@ -73,8 +73,8 @@
 			android:layout_marginEnd="32dp"
 			android:layout_marginBottom="64dp"
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="@+id/password"
-			app:layout_constraintStart_toStartOf="@+id/password"
+			app:layout_constraintEnd_toEndOf="@+id/tv_password"
+			app:layout_constraintStart_toStartOf="@+id/tv_password"
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintVertical_bias="0.3"/>
 	<Button
