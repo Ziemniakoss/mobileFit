@@ -53,4 +53,40 @@
 			android:name="com.mobilefit.ui.slideshow.SlideshowFragment"
 			android:label="@string/menu_slideshow"
 			tools:layout="@layout/fragment_slideshow"/>
+
+	<fragment
+			android:id="@+id/nav_exercises"
+			android:name="com.mobilefit.ui.exercises.ExercisesFragment"
+			android:label="@string/menu_exercises"
+			tools:layout="@layout/fragment_exercises"/>
+
+	<fragment
+			android:id="@+id/nav_exercises2"
+			android:name="com.mobilefit.ui.exercises.ExercisesFragment"
+			android:label="@string/menu_exercises"
+			tools:layout="@layout/exercise_list" />
+	<fragment
+			android:id="@+id/nav_diet"
+			android:name="com.mobilefit.ui.diet.DietFragment"
+			android:label="@string/menu_diet"
+			tools:layout="@layout/fragment_diet"/>
+
+	<fragment
+			android:id="@+id/nav_calories"
+			android:name="com.mobilefit.ui.calories.CaloriesFragment"
+			android:label="@string/menu_calories"
+			tools:layout="@layout/fragment_calories"/>
+
+	<fragment
+		android:id="@+id/nav_trainingplans"
+		android:name="com.mobilefit.ui.training.TrainingFragment"
+		android:label="@string/menu_trainings"
+		tools:layout="@layout/fragment_training"/>
+
+	<fragment
+			android:id="@+id/nav_stopper"
+			android:name="com.mobilefit.ui.stopper.StopperFragment"
+			android:label="@string/menu_stopper"
+			tools:layout="@layout/fragment_stopper"/>
+
 </navigation>

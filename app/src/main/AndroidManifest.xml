@@ -24,6 +24,11 @@
 				android:label="@string/title_activity_register"
 				android:theme="@style/AppTheme.NoActionBar">
 		</activity>
+		<activity android:name=".ui.exercises.category.ExerciseListActivity"/>
+		<activity android:name=".ui.exercises.exercise.ExerciseActivity"/>
+		<activity android:name=".ui.training.TrainingActivity"/>
+		<activity android:name=".ui.diet.DietActivity"/>
+
 	</application>
 
 </manifest>

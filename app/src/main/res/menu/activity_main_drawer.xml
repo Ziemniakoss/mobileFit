@@ -16,5 +16,20 @@
                 android:id="@+id/nav_slideshow"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_slideshow"/>
+        <item
+                android:id="@+id/nav_exercises"
+                android:title="@string/menu_exercises" />
+        <item
+                android:id="@+id/nav_trainingplans"
+                android:title="@string/menu_trainings" />
+        <item
+                android:id="@+id/nav_diet"
+                android:title="@string/menu_diet" />
+        <item
+                android:id="@+id/nav_calories"
+                android:title="@string/menu_calories" />
+        <item
+                android:id="@+id/nav_stopper"
+                android:title="@string/menu_stopper" />
     </group>
 </menu>

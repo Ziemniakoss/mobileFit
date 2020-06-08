@@ -10,6 +10,11 @@
 	<string name="menu_home">Home</string>
 	<string name="menu_gallery">Gallery</string>
 	<string name="menu_slideshow">Slideshow</string>
+	<string name="menu_exercises">Exercises</string>
+	<string name="menu_diet">Diets</string>
+	<string name="menu_calories">Calories Calculator</string>
+	<string name="menu_trainings">Training Plans</string>
+	<string name="menu_stopper">Stopper</string>
 
 	<string name="home_second">Home Second</string>
 	<string name="next">Next</string>
@@ -37,4 +42,9 @@
 	<string name="error_password_mismatch">Passwords mismatch</string>
 	<string name="error_unknown">Unknown error</string>
 	<string name="weight_new_measurement">New measurement</string>
+
+	<string name="exercises_category">Categories</string>
+	<string name="trainingplans">Training Plans</string>
+	<string name="diets">Diets</string>
+	<string name="stopper">Stopper</string>
 </resources>
