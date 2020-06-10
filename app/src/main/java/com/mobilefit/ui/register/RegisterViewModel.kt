@@ -16,14 +16,14 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
 	val result: LiveData<RegisterResult> = _result
 
 	fun register(
-		username: String, email: String,
+		email: String,
 		password: String, validatePassword: String
 	) {
 		if (!formState.value!!.isValid())
 			return
 
 		Thread {
-			val registerResult = userRepository.register(username, email, password)
+			val registerResult = userRepository.register(email = email, password = password)
 
 			if (registerResult is Result.Success) {
 				_result.postValue(RegisterResult(null))
@@ -34,11 +34,10 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
 	}
 
 	fun dataChanged(
-		username: String, email: String,
+		email: String,
 		password: String, validatePassword: String
 	) {
 		_formState.value = RegisterFormState(
-			usernameError = isUsernameValid(username),
 			emailError = isEmailValid(email),
 			passwordError = isPasswordValid(password),
 			passwordValidationError = isPasswordValidationValid(password, validatePassword)

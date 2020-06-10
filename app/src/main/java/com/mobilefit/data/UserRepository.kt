@@ -46,11 +46,11 @@ class UserRepository(val dataSource: UserDataSource) {
 	/**
 	 * Rejestruje i loguje jeżeli udało siee zarejestrować
 	 */
-	fun register(username: String, email: String, password: String): Result<User> {
-		val result = dataSource.register(username, email, password)
-		return if(result is Result.Success){
+	fun register( email: String, password: String): Result<User> {
+		val result = dataSource.register(email = email, password = password)
+		return if (result is Result.Success) {
 			dataSource.login(email, password);
-		}else{
+		} else {
 			Result.Error(LoginTakenException())
 		}
 	}

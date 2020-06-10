@@ -43,7 +43,7 @@ object UserDataSource {
 		}
 	}
 
-	fun register(username: String, email: String, password: String): Result<User?> {
+	fun register( email: String, password: String): Result<User?> {
 		val body = RequestBody.create(Variables.jsonMediaType, Gson().toJson(UserDTO(email, password)))
 		val request = Request.Builder()
 			.post(body)

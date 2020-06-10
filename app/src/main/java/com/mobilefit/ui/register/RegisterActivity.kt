@@ -30,9 +30,6 @@ class RegisterActivity : AppCompatActivity() {
 			val registerState = it ?: return@Observer
 			btn_register.isEnabled = registerState.isValid()
 			println(btn_register.isEnabled)
-			if (registerState.usernameError != null) {
-				tv_username.error = getString(registerState.usernameError)
-			}
 			if (registerState.emailError != null) {
 				tv_email.error = getString(registerState.emailError)
 			}
@@ -45,7 +42,6 @@ class RegisterActivity : AppCompatActivity() {
 
 		})
 		//nasłuchiwanie zmian tekstu
-		tv_username.addTextChangedListener(OnTextChangedListener{ _ ->dataUpdated()})
 		tv_email.addTextChangedListener(OnTextChangedListener{ _ ->dataUpdated()})
 		tv_password.addTextChangedListener(OnTextChangedListener{ _ ->dataUpdated()})
 		tv_validatePassword.addTextChangedListener(OnTextChangedListener{ _ ->dataUpdated()})
@@ -65,7 +61,6 @@ class RegisterActivity : AppCompatActivity() {
 
 	fun dataUpdated() {
 		registerViewModel.dataChanged(
-			username = tv_username.text.toString(),
 			password = tv_password.text.toString(),
 			validatePassword = tv_validatePassword.text.toString(),
 			email = tv_email.text.toString()
@@ -74,7 +69,6 @@ class RegisterActivity : AppCompatActivity() {
 
 	fun register(view: View) {
 		registerViewModel.register(
-			username = tv_username.text.toString(),
 			password = tv_password.text.toString(),
 			validatePassword = tv_validatePassword.text.toString(),
 			email = tv_email.text.toString()
