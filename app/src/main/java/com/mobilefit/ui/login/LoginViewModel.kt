@@ -18,14 +18,14 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 	val loginResult: LiveData<LoginResult> = _loginResult
 
 	fun login(username: String, password: String) {
-		// can be launched in a separate asynchronous job
-		val result = userRepository.login(username, password)
-
-		if (result is Result.Success) {
-			_loginResult.value = LoginResult()
-		} else {
-			_loginResult.value = LoginResult(error = R.string.login_failed)
-		}
+		Thread{
+			val result = userRepository.login(username, password)
+			if (result is Result.Success) {
+				_loginResult.postValue(LoginResult())
+			} else {
+				_loginResult.postValue(LoginResult(error = R.string.login_failed))
+			}
+		}.start()
 	}
 
 	fun loginDataChanged(username: String, password: String) {

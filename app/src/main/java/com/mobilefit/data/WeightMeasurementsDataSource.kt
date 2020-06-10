@@ -1,5 +1,6 @@
 package com.mobilefit.data
 
+import com.mobilefit.data.exceptions.NotFoundException
 import com.mobilefit.data.model.WeightMeasurement
 
 class WeightMeasurementsDataSource {

@@ -1,4 +1,4 @@
-package com.mobilefit.data
+package com.mobilefit.data.exceptions
 
 import java.lang.Exception
 

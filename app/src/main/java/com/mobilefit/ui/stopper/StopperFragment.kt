@@ -26,10 +26,6 @@ class StopperFragment : Fragment() {
 		stopperViewModel =
 			ViewModelProviders.of(this).get(StopperViewModel::class.java)
 		val root = inflater.inflate(R.layout.fragment_stopper, container, false)
-
-
-
-
 		return root
 	}
 
@@ -40,12 +36,14 @@ class StopperFragment : Fragment() {
 
 		setText(time)
 
-		stopperstart_button.setOnClickListener{
-			if(stopperstart_button.text == "Start"){
+		stopperstart_button.setOnClickListener {
+			if (stopperstart_button.text == "Start") {
 				stopperstart_button.setText("Stop")
 				timestamp = System.currentTimeMillis()
+
+
 				timer = object : CountDownTimer(maxTimeStopperSec * 1000, 1) {
-					override fun onFinish(){
+					override fun onFinish() {
 
 					}
 
@@ -53,38 +51,35 @@ class StopperFragment : Fragment() {
 						var tmp = System.currentTimeMillis()
 						time += tmp - timestamp
 						timestamp = tmp
-						if(stoper_display!=null){
+						if (stoper_display != null) {
 							setText(time)
 						}
 
 					}
 				}.start()
-
-
-			}else{
+			} else {
 				timer.cancel()
 				stopperstart_button.setText("Start")
 			}
 		}
 
-		stopperreset_button.setOnClickListener{
-			if(stopperstart_button.text == "Stop"){
+		stopperreset_button.setOnClickListener {
+			if (stopperstart_button.text == "Stop") {
 				timer.cancel()
 				stopperstart_button.setText("Start")
 			}
 			time = 0
 			setText(time)
 		}
-
 	}
 
-fun setText(time: Long){
-	val millis = (time % 1000).toInt()
-	val seconds = ((time/1000) % 60).toInt()
-	val minutes = ((time/(1000*60)) %60).toInt()
-	val hours = (time/(1000*60*60)).toInt()
-	val textToDisplay = "$hours:$minutes:$seconds:$millis"
-	stoper_display.setText(textToDisplay)
-}
+	fun setText(time: Long) {
+		val millis = (time % 1000).toInt()
+		val seconds = ((time / 1000) % 60).toInt()
+		val minutes = ((time / (1000 * 60)) % 60).toInt()
+		val hours = (time / (1000 * 60 * 60)).toInt()
+		val textToDisplay = "$hours:$minutes:$seconds:$millis"
+		stoper_display.setText(textToDisplay)
+	}
 
 }

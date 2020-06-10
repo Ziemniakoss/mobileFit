@@ -22,12 +22,15 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
 		if (!formState.value!!.isValid())
 			return
 
-		val registerResult = userRepository.register(username, email, password)
-		if (registerResult is Result.Success) {
-			_result.value = RegisterResult(null)
-		} else {
-			_result.value = RegisterResult(R.string.error_unknown)
-		}
+		Thread {
+			val registerResult = userRepository.register(username, email, password)
+
+			if (registerResult is Result.Success) {
+				_result.postValue(RegisterResult(null))
+			} else {
+				_result.postValue(RegisterResult(R.string.error_unknown))
+			}
+		}.start()
 	}
 
 	fun dataChanged(
