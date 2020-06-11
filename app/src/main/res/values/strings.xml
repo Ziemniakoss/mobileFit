@@ -47,4 +47,8 @@
 	<string name="trainingplans">Training Plans</string>
 	<string name="diets">Diets</string>
 	<string name="stopper">Stopper</string>
+	<string name="foodg">g of</string>
+	<string name="choosefood">(choose food)</string>
+	<string name="cal">cal</string>
+	<string name="calories_textView">Calories Calculator</string>
 </resources>

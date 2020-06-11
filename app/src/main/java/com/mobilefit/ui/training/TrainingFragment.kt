@@ -28,8 +28,8 @@ class TrainingFragment :Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		diets_recyclerview.layoutManager = LinearLayoutManager(this.context)
-		diets_recyclerview.adapter = TrainingAdapter()
+		training_recyclerview.layoutManager = LinearLayoutManager(this.context)
+		training_recyclerview.adapter = TrainingAdapter()
 	}
 
 }

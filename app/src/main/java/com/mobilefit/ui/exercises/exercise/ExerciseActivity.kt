@@ -11,7 +11,7 @@ class ExerciseActivity: AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.exercise_layout)
 		val exercise = intent.getStringExtra("exercise")
-		training_textView.text = exercise
+		diet_textView.text = exercise
 		trainingdescription_textView.text = ExerciseBase.getDesc(exercise)
 
 
