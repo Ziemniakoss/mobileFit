@@ -1,5 +1,7 @@
 package com.mobilefit.data
 
+import java.lang.Error
+
 /**
  * A generic class that holds a value with its loading status.
  * @param <T>
@@ -13,6 +15,13 @@ sealed class Result<out T : Any?> {
 		return when (this) {
 			is Success<*> -> "Success[data=$data]"
 			is Error -> "Error[exception=$exception]"
+		}
+	}
+
+	fun get():T?{
+		return when (this){
+			is Success<T> -> this.data
+			else -> null
 		}
 	}
 }
