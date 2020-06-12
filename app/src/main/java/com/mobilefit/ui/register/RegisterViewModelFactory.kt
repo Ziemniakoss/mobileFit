@@ -2,8 +2,8 @@ package com.mobilefit.ui.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.mobilefit.data.UserDataSource
-import com.mobilefit.data.UserRepository
+import com.mobilefit.data.users.UserDataSource
+import com.mobilefit.data.users.UserRepository
 import java.lang.IllegalArgumentException
 
 class RegisterViewModelFactory : ViewModelProvider.Factory {

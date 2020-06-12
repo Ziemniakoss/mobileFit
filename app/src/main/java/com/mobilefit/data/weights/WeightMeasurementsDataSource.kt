@@ -1,7 +1,7 @@
-package com.mobilefit.data
+package com.mobilefit.data.weights
 
+import com.mobilefit.data.Result
 import com.mobilefit.data.exceptions.NotFoundException
-import com.mobilefit.data.model.WeightMeasurement
 
 class WeightMeasurementsDataSource {
 	private val measurements = ArrayList<WeightMeasurement>()

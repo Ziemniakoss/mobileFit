@@ -1,6 +1,6 @@
-package com.mobilefit.data
+package com.mobilefit.data.weights
 
-import com.mobilefit.data.model.WeightMeasurement
+import com.mobilefit.data.Result
 
 class WeightMeasurementsRepository(private val dataSource: WeightMeasurementsDataSource) {
 	fun get(id: Int): Result<WeightMeasurement> {
@@ -15,5 +15,5 @@ class WeightMeasurementsRepository(private val dataSource: WeightMeasurementsDat
 		return dataSource.getAll()
 	}
 
-	fun getLast():Result<WeightMeasurement> = dataSource.getLast()
+	fun getLast(): Result<WeightMeasurement> = dataSource.getLast()
 }

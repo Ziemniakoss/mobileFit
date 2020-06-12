@@ -1,4 +1,4 @@
-package com.mobilefit.data.model
+package com.mobilefit.data.weights
 
 import java.util.*
 

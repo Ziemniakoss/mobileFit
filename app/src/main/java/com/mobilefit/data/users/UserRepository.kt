@@ -1,11 +1,7 @@
-package com.mobilefit.data
+package com.mobilefit.data.users
 
-import com.google.gson.Gson
-import com.mobilefit.Variables
+import com.mobilefit.data.Result
 import com.mobilefit.data.exceptions.LoginTakenException
-import com.mobilefit.data.model.User
-import com.mobilefit.dto.UserDTO
-import okhttp3.*
 
 /**
  * Class that requests authentication and user information from the remote data source and

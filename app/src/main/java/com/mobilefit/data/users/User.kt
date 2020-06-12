@@ -1,4 +1,4 @@
-package com.mobilefit.data.model
+package com.mobilefit.data.users
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

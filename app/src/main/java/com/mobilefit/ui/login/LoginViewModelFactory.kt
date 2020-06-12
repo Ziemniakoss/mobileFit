@@ -2,8 +2,8 @@ package com.mobilefit.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.mobilefit.data.UserDataSource
-import com.mobilefit.data.UserRepository
+import com.mobilefit.data.users.UserDataSource
+import com.mobilefit.data.users.UserRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

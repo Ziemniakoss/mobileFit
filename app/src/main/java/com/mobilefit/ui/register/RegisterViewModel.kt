@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mobilefit.R
 import com.mobilefit.data.Result
-import com.mobilefit.data.UserRepository
+import com.mobilefit.data.users.UserRepository
 
 class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 	private val _formState = MutableLiveData<RegisterFormState>()

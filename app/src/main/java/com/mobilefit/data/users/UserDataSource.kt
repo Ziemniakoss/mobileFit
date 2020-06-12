@@ -1,10 +1,10 @@
-package com.mobilefit.data
+package com.mobilefit.data.users
 
 import android.util.Log
 import com.google.gson.Gson
 import com.mobilefit.Variables
+import com.mobilefit.data.Result
 import com.mobilefit.data.exceptions.IllegalCredentials
-import com.mobilefit.data.model.User
 import com.mobilefit.dto.LoginResponse
 import com.mobilefit.dto.UserDTO
 import okhttp3.OkHttpClient
@@ -12,7 +12,6 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.Response
 import java.io.IOException
-import java.lang.reflect.GenericSignatureFormatError
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
