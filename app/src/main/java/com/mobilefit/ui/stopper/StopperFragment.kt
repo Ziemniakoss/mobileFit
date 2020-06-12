@@ -51,9 +51,9 @@ class StopperFragment : Fragment() {
 						var tmp = System.currentTimeMillis()
 						time += tmp - timestamp
 						timestamp = tmp
-						if (stoper_display != null) {
-							setText(time)
-						}
+//						if (stoper_display != null) {
+//							setText(time)
+//						}
 
 					}
 				}.start()
@@ -79,7 +79,7 @@ class StopperFragment : Fragment() {
 		val minutes = ((time / (1000 * 60)) % 60).toInt()
 		val hours = (time / (1000 * 60 * 60)).toInt()
 		val textToDisplay = "$hours:$minutes:$seconds:$millis"
-		stoper_display.setText(textToDisplay)
+	//	stoper_display.setText(textToDisplay)
 	}
 
 }

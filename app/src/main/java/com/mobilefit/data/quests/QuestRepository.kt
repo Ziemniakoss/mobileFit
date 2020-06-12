@@ -5,7 +5,7 @@ import com.mobilefit.data.Result
 class QuestRepository() {
 	val questDataSource = QuestDataSource;
 	fun get(id: Int): Result<Quest> {
-		return questDataSource.get(id);
+		return questDataSource.get(id)
 	}
 
 	fun getAll(): Result<List<Quest>> {
