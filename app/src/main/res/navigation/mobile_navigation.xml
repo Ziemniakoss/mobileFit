@@ -49,10 +49,16 @@
 	</fragment>
 
 	<fragment
-			android:id="@+id/nav_slideshow"
-			android:name="com.mobilefit.ui.slideshow.SlideshowFragment"
-			android:label="@string/menu_slideshow"
-			tools:layout="@layout/fragment_slideshow"/>
+		android:id="@+id/nav_slideshow"
+		android:name="com.mobilefit.ui.slideshow.DailyFragment"
+		android:label="@string/menu_slideshow"
+		tools:layout="@layout/fragment_slideshow"/>
+
+	<fragment
+			android:id="@+id/nav_daily"
+			android:name="com.mobilefit.ui.daily.DailyFragment"
+			android:label="@string/menu_daily"
+			tools:layout="@layout/fragment_daily"/>
 
 	<fragment
 			android:id="@+id/nav_exercises"
