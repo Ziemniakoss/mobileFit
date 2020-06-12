@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobilefit.R
+import com.mobilefit.data.quests.QuestRepository
 import kotlinx.android.synthetic.main.fragment_daily.*
 
 class DailyFragment : Fragment() {
@@ -30,12 +31,10 @@ class DailyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*tu zmienic na pobieranie questow z backendu*/
-        val quests = mutableListOf("Run or walk 2km in one activity 200 XP", "Make 3 activities with your friend 500 XP", "Discover 3 places 300 XP")
+        var questRepository = QuestRepository()
 
         daily_recyclerview.layoutManager = LinearLayoutManager(this.context)
-        daily_recyclerview.adapter = DailyAdapter(quests)
+        daily_recyclerview.adapter = DailyAdapter(questRepository)
     }
 
 

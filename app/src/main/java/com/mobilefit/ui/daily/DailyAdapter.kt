@@ -1,22 +1,21 @@
 package com.mobilefit.ui.daily
 
-import android.content.Intent
+
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilefit.R
-import com.mobilefit.ui.diet.DietsBase
+import com.mobilefit.data.quests.QuestRepository
 import kotlinx.android.synthetic.main.daily_categoryrow.view.*
-import kotlinx.android.synthetic.main.exercises_categoryrow.view.*
-import kotlinx.android.synthetic.main.fragment_daily.view.*
 
 
-class DailyAdapter(questList: MutableList<String>): RecyclerView.Adapter<DailyViewHolder>(){
+class DailyAdapter(questRepository: QuestRepository): RecyclerView.Adapter<DailyViewHolder>(){
 
-	var questList:MutableList<String> = questList
+	var questRepository = questRepository
+	var questList = questRepository.getAll()
 
 	override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): DailyViewHolder {
 		val layoutInflater: LayoutInflater = LayoutInflater.from(viewGroup.context)
@@ -26,22 +25,30 @@ class DailyAdapter(questList: MutableList<String>): RecyclerView.Adapter<DailyVi
 	}
 
 	override fun getItemCount(): Int {
-		return questList.size
+		return questList.get()?.size!!
 	}
 
+	@SuppressLint("ResourceAsColor")
 	override fun onBindViewHolder(holder: DailyViewHolder, position: Int) {
 		val questDescription = holder.view.dailyquest_textview
 		val dailyDoneButton = holder.view.dailydone_button
+		val questId = questList.get()!![position].id
+		val quest = questRepository.get(questId).get()
 
-		questDescription.text = questList[position]
-		dailyDoneButton.setOnClickListener{
+		val textToDisplay = " "+ quest!!.name+" | "+ quest!!.xp +" XP" + "\n "+ quest!!.description
 
-			/*dodanie punktow i wyslanie na backend*/
-			/*tam powinno sie odchaczyc i przyslac liste bez zrobionego*/
-			questList.remove(questDescription.text.toString())
-			notifyItemRemoved(position)
+		questDescription.text = textToDisplay
+		if(!quest.done) {
+			dailyDoneButton.setOnClickListener {
+				/*zaznaczenie wykonanego cwiczenia*/
+				questRepository.markAs(quest, true)
+				dailyDoneButton.setText("OK!")
+				dailyDoneButton.setBackgroundColor(0)
+			}
+		} else{
+			dailyDoneButton.setText("OK!")
+			dailyDoneButton.setBackgroundColor(0)
 		}
-
 
 	}
 

@@ -22,7 +22,7 @@
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/daily_recyclerview"
             android:layout_width="409dp"
-            android:layout_height="686dp"
+            android:layout_height="500dp"
             android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/daily_textView"
             tools:ignore="MissingConstraints"
