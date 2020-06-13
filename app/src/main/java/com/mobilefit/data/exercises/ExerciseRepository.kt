@@ -1,6 +1,7 @@
 package com.mobilefit.data.exercises
 
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.mobilefit.Variables
 import com.mobilefit.data.Result
 import com.mobilefit.data.exceptions.NotFoundException
@@ -8,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
+import java.lang.reflect.Type
 import java.util.*
 
 class ExerciseRepository : IExerciseRepository {
@@ -25,7 +27,8 @@ class ExerciseRepository : IExerciseRepository {
 			val call = OkHttpClient().newCall(req)
 			call.execute().use {
 				val response: Response = it
-				exercises = Gson().fromJson(response.body()?.string(), mutableListOf<Exercise>()::class.java)
+				val fooType: Type? = object : TypeToken<List<Exercise?>?>() {}.type
+				exercises = Gson().fromJson(response.body()?.string(), fooType)
 			}
 		}
 		t.start()
@@ -42,9 +45,10 @@ class ExerciseRepository : IExerciseRepository {
 				.build()
 			OkHttpClient().newCall(req).execute().use {
 				val response: Response = it
-				if(response.isSuccessful){
-					result = Result.Success(Gson().fromJson(response.body()?.string(), Exercise::class.java))
-				}else if(response.code() == 404){
+				if (response.isSuccessful) {
+					val fooType: Type? = object : TypeToken<Exercise?>() {}.type
+					result = Result.Success(Gson().fromJson(response.body()?.string(), fooType))
+				} else if (response.code() == 404) {
 					result = Result.Error(NotFoundException())
 				}
 			}
