@@ -13,7 +13,7 @@ import okhttp3.RequestBody
 import okhttp3.Response
 import java.io.IOException
 
-class WeightMeasurementsDataSource {
+object  WeightMeasurementsDataSource {
 	private val measurements = ArrayList<WeightMeasurement>()
 	fun get(id: Int): Result<WeightMeasurement> {
 		for (i in 0 until measurements.size)

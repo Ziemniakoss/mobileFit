@@ -2,7 +2,8 @@ package com.mobilefit.data.weights
 
 import com.mobilefit.data.Result
 
-class WeightMeasurementsRepository(private val dataSource: WeightMeasurementsDataSource) {
+class WeightMeasurementsRepository() {
+	private val dataSource = WeightMeasurementsDataSource
 	fun get(id: Int): Result<WeightMeasurement> {
 		return dataSource.get(id)
 	}

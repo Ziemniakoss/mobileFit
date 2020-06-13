@@ -28,7 +28,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 			} else {
 				_loginResult.postValue(LoginResult(error = R.string.login_failed))
 			}
-			Log.d("Dupa", WeightMeasurementsRepository(WeightMeasurementsDataSource()).getAll().toString())
+			Log.d("Dupa", WeightMeasurementsRepository().getAll().toString())
 		}.start()
 
 	}

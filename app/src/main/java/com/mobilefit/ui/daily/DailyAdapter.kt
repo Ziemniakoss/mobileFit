@@ -2,7 +2,6 @@ package com.mobilefit.ui.daily
 
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +37,7 @@ class DailyAdapter(questRepository: QuestRepository): RecyclerView.Adapter<Daily
 		val textToDisplay = " "+ quest!!.name+" | "+ quest!!.xp +" XP" + "\n "+ quest!!.description
 
 		questDescription.text = textToDisplay
-		if(!quest.done) {
+		if(!quest.completed) {
 			dailyDoneButton.setOnClickListener {
 				/*zaznaczenie wykonanego cwiczenia*/
 				questRepository.markAs(quest, true)

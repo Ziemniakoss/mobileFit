@@ -15,7 +15,7 @@ class WeightViewModel : ViewModel() {
 	val latestMeasurement: LiveData<WeightMeasurement> = _latestMeasurement
 
 	private val repository =
-		WeightMeasurementsRepository(WeightMeasurementsDataSource())//todo di
+		WeightMeasurementsRepository()//todo di
 
 	private val _text = MutableLiveData<String>().apply {
 		value = "This is gallery Fragment"

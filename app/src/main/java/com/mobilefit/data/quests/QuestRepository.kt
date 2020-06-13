@@ -25,7 +25,7 @@ class QuestRepository() {
 			OkHttpClient().newCall(req).execute().use {
 				val fooType: Type? = object : TypeToken<Quest?>() {}.type
 				val quest = Gson().fromJson<Quest>(it.body()?.string(), fooType)
-				Log.d("Quest", "${quest}  ${quest.done}")
+				Log.d("Quest", "${quest}  ${quest.completed}")
 				result = Result.Success(quest)
 			}
 		}
@@ -72,6 +72,6 @@ class QuestRepository() {
 		}
 		t.start()
 		t.join()
-		quest.done = done
+		quest.completed = done
 	}
 }
