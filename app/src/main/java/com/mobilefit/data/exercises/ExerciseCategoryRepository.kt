@@ -2,12 +2,15 @@ package com.mobilefit.data.exercises
 
 import android.util.Log
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.mobilefit.Variables
 import com.mobilefit.data.Result
 import com.mobilefit.data.exceptions.NotFoundException
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import java.lang.reflect.Type
+
 
 class ExerciseCategoryRepository : IExerciseCategoryRepository {
 	override fun get(id: Int): Result<ExerciseCategory> {
@@ -32,7 +35,8 @@ class ExerciseCategoryRepository : IExerciseCategoryRepository {
 				val response:Response = it
 				var res = response.body()?.string()
 				Log.d("aaa",res)
-				categories = Gson().fromJson(res, mutableListOf<ExerciseCategory>()::class.java)
+				val fooType: Type? = object : TypeToken<List<ExerciseCategory?>?>() {}.type
+				categories = Gson().fromJson(res, fooType/* mutableListOf<ExerciseCategory>()::class.java*/)
 			}
 			Log.d("aaa","aaaaa")
 

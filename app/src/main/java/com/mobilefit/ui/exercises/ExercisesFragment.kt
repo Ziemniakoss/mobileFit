@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilefit.R
+import com.mobilefit.data.exercises.ExerciseCategoryRepository
 import kotlinx.android.synthetic.main.fragment_exercises.*
 
 class ExercisesFragment : Fragment() {
@@ -31,7 +32,10 @@ class ExercisesFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		var exerciseCategoryAdapter: ExerciseCategoryRepository = ExerciseCategoryRepository()
+		var categoriesList = exerciseCategoryAdapter.getAll()
+
 		exercises_recyclerView.layoutManager = LinearLayoutManager(this.context)
-		exercises_recyclerView.adapter = ExercisesAdapter()
+		exercises_recyclerView.adapter = ExercisesAdapter(categoriesList)
 	}
 }

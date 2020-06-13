@@ -8,11 +8,14 @@ import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilefit.R
+import com.mobilefit.data.exercises.ExerciseCategory
 import com.mobilefit.ui.exercises.category.ExerciseListActivity
 import kotlinx.android.synthetic.main.exercises_categoryrow.view.*
 
 
-class ExercisesAdapter: RecyclerView.Adapter<ExercisesViewHolder>(){
+class ExercisesAdapter(categoriesList :List<ExerciseCategory>): RecyclerView.Adapter<ExercisesViewHolder>(){
+
+	var categoriesList:List<ExerciseCategory> = categoriesList
 
 	override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ExercisesViewHolder {
 		val layoutInflater: LayoutInflater = LayoutInflater.from(viewGroup.context)
@@ -22,18 +25,21 @@ class ExercisesAdapter: RecyclerView.Adapter<ExercisesViewHolder>(){
 	}
 
 	override fun getItemCount(): Int {
-		return ExercisesCategoriesBase.categoriesList.size
+		return categoriesList.size
 	}
 
 	override fun onBindViewHolder(holder: ExercisesViewHolder, position: Int) {
 		val category = holder.view.exercisecategories_button
 
-		category.setText(ExercisesCategoriesBase.categoriesList[position])
+
+		System.out.println(categoriesList.get(position).name)
+		/*category.setText(categoriesList[position].name)
+
 		category.setOnClickListener{
 			var intent: Intent= Intent(holder.view.context, ExerciseListActivity::class.java)
 			intent.putExtra("category", ExercisesCategoriesBase.categoriesList[position])
 			holder.view.context.startActivity(intent)
-		}
+		}*/
 	}
 
 }
