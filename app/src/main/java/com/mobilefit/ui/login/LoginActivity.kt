@@ -15,6 +15,7 @@ import android.widget.Toast
 import com.mobilefit.MainActivity
 
 import com.mobilefit.R
+import com.mobilefit.data.exercises.ExerciseRepository
 import com.mobilefit.ui.register.RegisterActivity
 import com.mobilefit.utils.OnTextChangedListener
 import kotlinx.android.synthetic.main.activity_login.*
