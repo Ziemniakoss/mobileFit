@@ -29,17 +29,18 @@ class ExercisesAdapter(categoriesList :List<ExerciseCategory>): RecyclerView.Ada
 	}
 
 	override fun onBindViewHolder(holder: ExercisesViewHolder, position: Int) {
-		val category = holder.view.exercisecategories_button
+		val categoryButton = holder.view.exercisecategories_button
+		val category = categoriesList[position]
 
+		categoryButton.setText(category.name)
 
-		System.out.println(categoriesList.get(position).name)
-		/*category.setText(categoriesList[position].name)
-
-		category.setOnClickListener{
+		categoryButton.setOnClickListener{
 			var intent: Intent= Intent(holder.view.context, ExerciseListActivity::class.java)
-			intent.putExtra("category", ExercisesCategoriesBase.categoriesList[position])
+			intent.putExtra("categoryName", category.name)
+			System.out.println(category.id)
+			intent.putExtra("categoryId", category.id.toString())
 			holder.view.context.startActivity(intent)
-		}*/
+		}
 	}
 
 }
