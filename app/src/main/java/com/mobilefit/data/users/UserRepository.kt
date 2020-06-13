@@ -8,8 +8,8 @@ import com.mobilefit.data.exceptions.LoginTakenException
  * maintains an in-memory cache of login status and user credentials information.
  */
 
-class UserRepository(val dataSource: UserDataSource) {
-
+object UserRepository {
+	val dataSource =  UserDataSource
 	// in-memory cache of the loggedInUser object
 	var user: User? = null
 		private set

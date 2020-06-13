@@ -1,5 +1,6 @@
 package com.mobilefit.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,8 @@ import com.mobilefit.data.users.UserRepository
 import com.mobilefit.data.Result
 
 import com.mobilefit.R
+import com.mobilefit.data.weights.WeightMeasurementsDataSource
+import com.mobilefit.data.weights.WeightMeasurementsRepository
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
@@ -25,7 +28,9 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 			} else {
 				_loginResult.postValue(LoginResult(error = R.string.login_failed))
 			}
+			Log.d("Dupa", WeightMeasurementsRepository(WeightMeasurementsDataSource()).getAll().toString())
 		}.start()
+
 	}
 
 	fun loginDataChanged(username: String, password: String) {
