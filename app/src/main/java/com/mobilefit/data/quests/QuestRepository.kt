@@ -46,13 +46,10 @@ class QuestRepository() {
 				val fooType: Type? = object : TypeToken<List<Quest?>?>() {}.type
 				val quests = Gson().fromJson<List<Quest>>(it.body()?.string(), fooType)
 				result = Result.Success(quests)
-				Log.d("Quest", "${quests}  ${quests[0]}")
 			}
 		}
 		t.start()
 		t.join()
-		for(q in result.get()!!)
-			Log.d("KEK", q.toString())
 		return result
 	}
 
