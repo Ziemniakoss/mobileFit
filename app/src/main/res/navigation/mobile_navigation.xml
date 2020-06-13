@@ -50,7 +50,7 @@
 
 	<fragment
 		android:id="@+id/nav_slideshow"
-		android:name="com.mobilefit.ui.slideshow.DailyFragment"
+		android:name="com.mobilefit.ui.slideshow.SlideshowFragment"
 		android:label="@string/menu_slideshow"
 		tools:layout="@layout/fragment_slideshow"/>
 
