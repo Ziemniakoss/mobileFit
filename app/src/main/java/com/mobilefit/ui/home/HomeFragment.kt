@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.mobilefit.R
 import com.mobilefit.data.quests.QuestRepository
+import com.mobilefit.data.workouts.WorkoutRepository
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -52,6 +53,19 @@ class HomeFragment : Fragment() {
 		level2_view.text = level.toString()
 		exp2_textview.text = exp.toString()
 		exptonextlevel2_textview.text = expToNextLevel.toString()
+
+		/*kalorie*/
+		var workouts = WorkoutRepository().getAll().get()
+		var workoutsSize = workouts!!.size
+		var calories = 0
+
+		var i = 0
+		while (i < workoutsSize){
+			calories += workouts.get(i).calories
+			i++
+		}
+
+		calories_textView.setText(calories.toString())
 
 	}
 }
