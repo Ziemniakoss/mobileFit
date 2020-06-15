@@ -17,13 +17,19 @@
 					android:background="@color/colorAccent" android:id="@+id/aa">
 
 				<TextView
-						android:text="200kg"
+						android:id="@+id/tv_lastWeight"
 						android:layout_width="0dp"
-						android:layout_height="wrap_content" android:id="@+id/tv_lastWeight"
-						app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-						app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
-						android:layout_marginStart="24dp" android:layout_marginEnd="24dp"
-						android:textAlignment="center" android:textColor="@color/textColor" android:textSize="30sp"/>
+						android:layout_height="wrap_content"
+						android:layout_marginStart="24dp"
+						android:layout_marginTop="24dp"
+						android:layout_marginEnd="24dp"
+						android:text="200kg"
+						android:textAlignment="center"
+						android:textColor="@color/textColor"
+						android:textSize="25sp"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent" />
 				<Button
 						android:text="@string/weight_new_measurement"
 						android:layout_width="0dp"
@@ -36,14 +42,32 @@
 						android:background="@color/colorPrimary" android:textColor="@color/textColor"
 						android:id="@+id/btn_newMeasurement"/>
 			</androidx.constraintlayout.widget.ConstraintLayout>
-			<HorizontalScrollView
-					android:layout_width="400sp" android:layout_height="wrap_content"
-					android:layout_margin="8sp" android:padding="8sp" android:background="@color/colorAccent">
-				<view
-						android:layout_width="wrap_content"
-						android:layout_height="300dp" android:id="@+id/v_liearChart"
-						class="im.dacer.androidcharts.LineView" android:minHeight="200sp" android:minWidth="200sp"/>
-			</HorizontalScrollView>
+
+
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="200dp"
+					android:fitsSystemWindows="true"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintLeft_toRightOf="parent"
+					android:orientation="vertical">
+
+				<com.github.mikephil.charting.charts.LineChart
+						android:id="@+id/lineChart"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="5dp"
+						android:layout_marginTop="10dp"
+						android:layout_marginEnd="5dp"
+						android:layout_marginBottom="10dp"
+						android:background="@color/colorAccent"
+						android:padding="9dp" />
+			</LinearLayout>
+
+
+
+
 		</LinearLayout>
 	</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
