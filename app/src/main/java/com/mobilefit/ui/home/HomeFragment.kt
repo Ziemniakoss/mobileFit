@@ -55,16 +55,18 @@ class HomeFragment : Fragment() {
 		exptonextlevel2_textview.text = expToNextLevel.toString()
 
 		/*kalorie*/
-		var workouts = WorkoutRepository().getAll().get()
-		var workoutsSize = workouts!!.size
 		var calories = 0
+		var workouts = WorkoutRepository().getAll().get()
+		if(workouts != null) {
+			var workoutsSize = workouts!!.size
 
-		var i = 0
-		while (i < workoutsSize){
-			calories += workouts.get(i).calories
-			i++
+
+			var i = 0
+			while (i < workoutsSize) {
+				calories += workouts.get(i).calories
+				i++
+			}
 		}
-
 		calories_textView.setText(calories.toString())
 
 	}
